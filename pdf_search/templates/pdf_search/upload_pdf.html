@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "pdf_search/upload-styles.css" %}">
+    <title>Upload PDF</title>
+</head>
+<body>
+    {% comment %} enctype tells browser that this form when submited will 
+                  contain the file and this changes how the request will be 
+                  sent to the server (POST request is sent to /profiles) {% endcomment %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="pdf_file">
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{% url 'qna_page' %}"><button class="center-button">Ask a Question</button></a>
+</body>
+</html>
