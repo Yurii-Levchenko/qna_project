@@ -2,15 +2,15 @@ from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
 from .models import PDFDocument
 from .utils import extract_text_from_pdf
-# from django.conf import settings
+from django.conf import settings
 
-# es = Elasticsearch(
-#     [f"{settings.ELASTICSEARCH_HOST}:{settings.ELASTICSEARCH_PORT}"],
-#     http_auth=(settings.ELASTICSEARCH_USERNAME, settings.ELASTICSEARCH_PASSWORD)
-# )
+es = Elasticsearch(
+    [f"{settings.ELASTICSEARCH_HOST}:{settings.ELASTICSEARCH_PORT}"],
+    http_auth=(settings.ELASTICSEARCH_USERNAME, settings.ELASTICSEARCH_PASSWORD)
+)
 
-es = Elasticsearch(['http://localhost:9200/'],
-                   http_auth=('elastic', 'xvlY7Nixfrw4=9seSXnW'))
+# es = Elasticsearch(['http://localhost:9200/'],
+#                    http_auth=('elastic', 'xvlY7Nixfrw4=9seSXnW'))
 
 def create_index():
     index_name = 'pdf_documents'

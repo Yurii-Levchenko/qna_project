@@ -125,7 +125,10 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# ELASTICSEARCH_HOST = 'localhost'  # Elasticsearch host
-# ELASTICSEARCH_PORT = 9200  # Elasticsearch port
-# ELASTICSEARCH_USERNAME = 'elastic'  # Elasticsearch username (if authentication is enabled)
-# ELASTICSEARCH_PASSWORD = 'xvlY7Nixfrw4=9seSXnW'  # Elasticsearch password (if authentication is enabled)
+########## Paste Your Credentials here #########
+
+ELASTICSEARCH_HOST = 'http://localhost'  # Elasticsearch host
+ELASTICSEARCH_PORT = '9200/'  # Elasticsearch port
+ELASTICSEARCH_USERNAME = 'elastic'  # Elasticsearch username
+ELASTICSEARCH_PASSWORD = 'xvlY7Nixfrw4=9seSXnW'  # Elasticsearch password
+
