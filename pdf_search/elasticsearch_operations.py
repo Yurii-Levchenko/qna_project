@@ -21,6 +21,7 @@ def create_index():
         'mappings': {
             'properties': {
                 'file': {'type': 'text'},
+                'content': {'type': 'text'},
                 'upload_date': {'type': 'date'}
             }
         }
@@ -44,7 +45,8 @@ def index_pdf_documents():
                 yield {
                     '_index': 'pdf_documents',
                     '_id': pdf_document.id,
-                    'file': text,
+                    'file': pdf_document.file.name,
+                    'content': text,
                     'upload_date': pdf_document.upload_date
                 }
     

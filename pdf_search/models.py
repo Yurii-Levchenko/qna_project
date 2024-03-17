@@ -10,6 +10,7 @@ from elasticsearch import Elasticsearch
 class PDFDocument(models.Model):
     file = models.FileField(upload_to='pdf_files/')
     upload_date = models.DateTimeField(auto_now_add=True)
+    content = models.TextField(blank=True)
 
 
 
