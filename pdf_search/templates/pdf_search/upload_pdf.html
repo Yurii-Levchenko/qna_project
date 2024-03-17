@@ -9,9 +9,6 @@
     <title>Upload PDF</title>
 </head>
 <body>
-    {% comment %} enctype tells browser that this form when submited will 
-                  contain the file and this changes how the request will be 
-                  sent to the server (POST request is sent to /profiles) {% endcomment %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="pdf_file">
