@@ -2,7 +2,6 @@ from django.test import TestCase
 
 # Create your tests here.
 from django.test import TestCase
-from .models import PDFDocument
 from pdfminer.high_level import extract_text
 
 class PDFTextExtractionTestCase(TestCase):
