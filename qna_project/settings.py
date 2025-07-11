@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'pdf_search',
-    'pdfminer',
+
+    'widget_tweaks',
+    'markdownify', 
+    'chats',
+
+    # 'pdf_search',
+    # 'pdfminer',
 ]
 
 MIDDLEWARE = [
