@@ -1,4 +1,4 @@
-****PDF Q&A Application****
+****AI PDF Q&A Assistant****
 LLM Searching in Python, Djano using LangChain and OpenAI API
 
 This is a Django web application designed to allow users to upload PDF documents and ask questions related to their content.
