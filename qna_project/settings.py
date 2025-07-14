@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,11 +40,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     'widget_tweaks',
-    'markdownify', 
-    'chats',
-
-    # 'pdf_search',
-    # 'pdfminer',
+    'markdownify',
+    'pdf_search',
+    'api',
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +62,7 @@ ROOT_URLCONF = "qna_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -123,17 +124,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+elasticsearch_password = os.getenv('ELASTICSEARCH_PASSWORD')
+# ELASTICSEARCH_HOST = 'http://localhost'
+# ELASTICSEARCH_PORT = '9200/'
+# ELASTICSEARCH_USERNAME = 'elastic'
+# ELASTICSEARCH_PASSWORD = elasticsearch_password
 
-########## Paste Your Credentials here #########
 
-ELASTICSEARCH_HOST = 'http://localhost'  # Elasticsearch host
-ELASTICSEARCH_PORT = '9200/'  # Elasticsearch port
-ELASTICSEARCH_USERNAME = 'elastic'  # Elasticsearch username
-ELASTICSEARCH_PASSWORD = 'xvlY7Nixfrw4=9seSXnW'  # Elasticsearch password
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ],
+}
 
