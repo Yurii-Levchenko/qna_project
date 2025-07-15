@@ -1,3 +1,5 @@
+****Hosted on AWS!****
+http://qna-ai-assistant-env.eba-cu433pmd.us-east-1.elasticbeanstalk.com/
 ****AI PDF Q&A Assistant****
 LLM Searching in Python, Djano using LangChain and OpenAI API
 
